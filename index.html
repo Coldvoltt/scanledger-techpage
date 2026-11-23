@@ -1,0 +1,579 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ScanLedger Technologies</title>
+<meta name="description" content="ScanLedger Technologies Ltd designs, builds and supports custom software, automation and AI solutions for SMEs, banks, microfinance institutions and startups.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ScanLedger Technologies">
+<meta property="og:title" content="ScanLedger Technologies: Software, Automation & AI">
+<meta property="og:description" content="Custom software, automation, AI and integrations for SMEs, banks, microfinance institutions and startups.">
+<meta property="og:url" content="https://tech.scanledgerr.com/">
+<meta property="og:image" content="https://tech.scanledgerr.com/assets/scanledger.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#ffffff">
+<link rel="canonical" href="https://tech.scanledgerr.com/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 504 504'%3E%3Ccircle fill='%23badca4' cx='252' cy='252' r='252'/%3E%3Cellipse fill='%23213018' cx='252' cy='252' rx='227.67' ry='229'/%3E%3Cpath fill='%23badca3' d='M359.75,286.03c0,56.39-45.7,102.08-102.08,102.08h-113.43l27-47.75,20.43-36.16,6.33-11.19,31.1-55.02,17.72-31.36,12.8-22.66,24.11-42.65,7.97-14.09h-45.37c-31.32,0-56.71,25.39-56.71,56.71,0,7.86,1.6,15.36,4.51,22.18,2.79,6.57,6.78,12.5,11.71,17.52,1.63,1.66,3.35,3.21,5.17,4.66l-21.37,36.62-15,25.71c-6.83-6.73-12.7-14.42-17.42-22.85-8.27-14.73-12.97-31.72-12.97-49.82,0-56.39,45.7-102.08,102.08-102.08h79.4l-13.43,24.17-13.03,23.48-13.51,24.31-13.83,24.87-14.96,26.94-40.09,72.15-1.85,3.35c9.34,3.01,19.26,4.7,29.55,4.86.58.03,1.17.03,1.75.03s1.17,0,1.75-.03c30.51-.93,54.96-25.96,54.96-56.69,0-14.64-5.56-28-14.66-38.06l17.17-29.44c17.32,9.21,31.67,23.26,41.24,40.37,8.27,14.73,12.97,31.72,12.97,49.82Z'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FFFFFF;
+  --soft:#F6F9F3;
+  --line:#E4EADF;
+  --ink:#16201A;
+  --text:#545F55;
+  --muted:#7E897D;
+  --forest:#213018;
+  --forest-2:#2F4424;
+  --accent:#4C7A32;
+  --mint:#BADCA3;
+  --mint-tint:#EDF6E6;
+  --sans:"Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --gutter:clamp(16px,4vw,40px);
+  --max:1180px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--sans);font-size:16.5px;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3,h4{color:var(--ink);font-weight:700;letter-spacing:-.02em;margin:0}
+p{margin:0}
+a{color:inherit}
+img{display:block;max-width:100%}
+svg{display:block}
+:focus-visible{outline:2px solid var(--forest);outline-offset:3px;border-radius:6px}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gutter)}
+.skip{position:absolute;left:-999px;top:8px;background:var(--forest);color:#fff;padding:8px 14px;z-index:100;border-radius:999px}
+.skip:focus{left:8px}
+.hl{color:var(--accent)}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;font:600 15px/1 var(--sans);text-decoration:none;padding:15px 26px;border-radius:999px;border:1.5px solid transparent;transition:background .15s,border-color .15s;white-space:nowrap;cursor:pointer}
+.btn svg{width:18px;height:18px;flex:none}
+.btn-dark{background:var(--forest);color:#fff}
+.btn-dark:hover{background:var(--forest-2)}
+.btn-line{background:#fff;color:var(--ink);border-color:var(--line)}
+.btn-line:hover{border-color:var(--forest)}
+.btn-mint{background:var(--mint);color:var(--forest)}
+.btn-mint:hover{background:#CBE6B8}
+.btn-ghost-w{color:#fff;border-color:rgba(255,255,255,.35)}
+.btn-ghost-w:hover{border-color:#fff}
+.btn-sm{padding:11px 20px;font-size:14px}
+
+/* nav */
+.nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.94);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid transparent;transition:border-color .2s}
+.nav.scrolled,.nav.open{border-bottom-color:var(--line)}
+.nav .bar{display:flex;align-items:center;justify-content:space-between;height:74px;gap:20px}
+.brand{display:flex;align-items:center;gap:11px;text-decoration:none;color:var(--ink)}
+.brand svg{width:36px;height:36px;flex:none}
+.brand b{font-weight:700;font-size:18px;letter-spacing:-.02em}
+.brand b span{font-weight:500;color:var(--muted)}
+.links-desk{display:flex;gap:34px;list-style:none;margin:0;padding:0;font-size:15px;font-weight:500}
+.links-desk a{text-decoration:none;color:var(--text)}
+.links-desk a:hover{color:var(--ink)}
+.nav-right{display:flex;align-items:center;gap:10px}
+.burger{display:none;width:44px;height:44px;border-radius:50%;border:1.5px solid var(--line);background:#fff;cursor:pointer;place-items:center;padding:0}
+.burger span{display:block;width:18px;height:2px;background:var(--ink);border-radius:2px;position:relative;transition:background .2s}
+.burger span::before,.burger span::after{content:"";position:absolute;left:0;width:18px;height:2px;background:var(--ink);border-radius:2px;transition:transform .2s}
+.burger span::before{top:-6px}.burger span::after{top:6px}
+.nav.open .burger span{background:transparent}
+.nav.open .burger span::before{transform:translateY(6px) rotate(45deg)}
+.nav.open .burger span::after{transform:translateY(-6px) rotate(-45deg)}
+.menu{display:none;border-top:1px solid var(--line);padding:12px 0 20px}
+.menu ul{list-style:none;margin:0;padding:0}
+.menu ul a{display:block;padding:13px 0;font-size:17px;font-weight:600;color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line)}
+.menu .btn{margin-top:18px;width:100%}
+.nav.open .menu{display:block}
+@media (max-width:900px){.links-desk{display:none}.burger{display:grid}.nav-right .btn{display:none}}
+@media (max-width:420px){.brand b span{display:none}}
+
+/* scaffolding */
+section{scroll-margin-top:76px}
+.sec{padding:clamp(72px,9vw,112px) 0}
+.soft{background:var(--soft)}
+.eyebrow{font-style:italic;font-weight:600;font-size:14.5px;color:var(--accent);margin-bottom:14px}
+.title{text-align:center;max-width:720px;margin:0 auto clamp(40px,5vw,60px)}
+.title h2{font-size:clamp(30px,3.6vw,44px);line-height:1.15;letter-spacing:-.025em;margin-bottom:14px;text-wrap:balance}
+.title p{font-size:17.5px}
+
+/* hero */
+.hero{padding:clamp(72px,10vw,136px) 0 clamp(72px,9vw,120px)}
+.hero-copy{text-align:center;max-width:920px;margin:0 auto}
+.hero h1{font-size:clamp(38px,5.6vw,70px);line-height:1.08;letter-spacing:-.04em;font-weight:800;margin-bottom:24px;text-wrap:balance}
+.lede{font-size:clamp(17px,1.5vw,20px);max-width:58ch;margin:0 auto 36px}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+
+/* services */
+.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+.svc{background:#fff;border:1px solid var(--line);border-radius:20px;padding:32px 30px;transition:border-color .2s,box-shadow .2s}
+.svc:hover{border-color:#C8D6BE;box-shadow:0 18px 40px -24px rgba(22,32,26,.25)}
+.ico{width:52px;height:52px;border-radius:14px;background:var(--mint-tint);color:var(--forest);display:grid;place-items:center;margin-bottom:22px}
+.ico svg{width:24px;height:24px}
+.svc h3{font-size:19px;margin-bottom:10px}
+.svc p{font-size:15.5px}
+@media (max-width:960px){.grid3{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:620px){.grid3{grid-template-columns:minmax(0,1fr)}}
+
+/* why */
+.why{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
+.why article{display:flex;gap:20px;padding:30px;background:#fff;border-radius:20px;border:1px solid var(--line)}
+.why .num{flex:none;width:44px;height:44px;border-radius:50%;background:var(--forest);color:var(--mint);display:grid;place-items:center}
+.why .num svg{width:20px;height:20px}
+.why h3{font-size:18.5px;margin-bottom:8px}
+.why p{font-size:15.5px}
+@media (max-width:760px){.why{grid-template-columns:minmax(0,1fr)}.why article{padding:24px}}
+
+/* audience */
+.aud{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+.aud article{padding:30px;border-radius:20px;background:var(--forest);color:#C6D4BC;display:flex;flex-direction:column}
+.aud article:nth-child(2){background:var(--accent);color:#E8F2E0}
+.aud article:nth-child(3){background:var(--mint);color:#2C3E22}
+.aud h3{color:#fff;font-size:21px;margin-bottom:10px}
+.aud article:nth-child(3) h3{color:var(--forest)}
+.aud p{font-size:15.5px;margin-bottom:16px}
+.aud ul{list-style:none;margin:0;padding:0;font-size:15px;font-weight:500}
+.aud li{padding:5px 0 5px 22px;position:relative}
+.aud li::before{content:"";position:absolute;left:0;top:13px;width:10px;height:2px;border-radius:2px;background:currentColor;opacity:.7}
+.aud .more{margin-top:18px;font-weight:700;font-size:15px;color:#fff;text-decoration:none}
+.aud .more:hover{text-decoration:underline;text-underline-offset:3px}
+@media (max-width:900px){.aud{grid-template-columns:minmax(0,1fr)}}
+
+/* microfinance */
+.mfb{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:22px;align-items:stretch}
+.mfb>*{min-width:0}
+.sol-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.sol{background:#fff;border:1px solid var(--line);border-radius:18px;padding:24px}
+.sol h3{font-size:17px;margin-bottom:6px}
+.sol p{font-size:15px}
+.secure{background:var(--forest);color:#C6D4BC;border-radius:20px;padding:32px 30px}
+.secure h3{color:#fff;font-size:21px;line-height:1.25;margin-bottom:10px}
+.secure>p{font-size:15.5px;margin-bottom:18px}
+.secure ul{list-style:none;margin:0;padding:0;font-size:15px}
+.secure li{display:flex;gap:12px;padding:10px 0;border-top:1px solid rgba(186,220,163,.18)}
+.secure li svg{flex:none;width:18px;height:18px;color:var(--mint);margin-top:4px}
+@media (max-width:960px){.mfb{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:560px){.sol-list{grid-template-columns:minmax(0,1fr)}}
+
+/* work */
+.frame{background:#fff;border:1px solid var(--line);border-radius:12px 12px 0 0;border-bottom:0;overflow:hidden;box-shadow:0 12px 30px -18px rgba(22,32,26,.35)}
+.chrome{display:flex;align-items:center;gap:6px;height:28px;padding:0 12px;border-bottom:1px solid var(--line);background:#FAFBF8}
+.chrome i{width:8px;height:8px;border-radius:50%;background:#DDE3D7}
+.chrome span{margin-left:10px;font-size:11px;color:var(--muted);background:#fff;border:1px solid var(--line);border-radius:999px;padding:0 10px;line-height:17px}
+.frame img{width:100%;height:auto;aspect-ratio:1.6;object-fit:cover;object-position:top}
+.flag{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);background:#fff;border:1px solid var(--line);border-radius:24px;overflow:hidden;text-decoration:none;color:inherit;margin-bottom:56px;transition:border-color .2s,box-shadow .2s}
+.flag:hover,.proj:hover{border-color:#C8D6BE;box-shadow:0 22px 44px -26px rgba(22,32,26,.3)}
+.flag .shot{background:var(--soft);padding:32px 32px 0;display:flex;align-items:flex-end}
+.flag .shot .frame{width:100%}
+.flag-body{padding:clamp(28px,4vw,44px);display:flex;flex-direction:column;justify-content:center}
+.flag-body h3{font-size:clamp(26px,2.8vw,34px);margin-bottom:12px}
+.flag-body p{margin-bottom:14px}
+.flag-body .rel{font-size:15px;color:var(--muted);padding:14px 16px;border-radius:12px;background:var(--soft);margin:6px 0 22px}
+.tag{display:inline-block;align-self:flex-start;font-size:12.5px;font-weight:600;padding:5px 12px;border-radius:999px;background:var(--mint-tint);color:var(--forest);white-space:nowrap;margin-bottom:14px}
+.tag.g{background:var(--soft);color:var(--text);border:1px solid var(--line);margin-bottom:0}
+.go{margin-top:auto;display:inline-flex;align-items:center;gap:6px;font-weight:600;font-size:15px;color:var(--accent)}
+.flag-body .go{margin-top:0}
+.go svg{width:15px;height:15px;transition:transform .15s}
+.flag:hover .go svg,.proj:hover .go svg{transform:translate(2px,-2px)}
+.flag+.flag{margin-top:-32px}
+.flag.rev{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr)}
+.flag.rev .shot{order:2}
+.tag.dev{background:#FCF1DC;color:#7A4E0E}
+@media (max-width:900px){.flag,.flag.rev{grid-template-columns:minmax(0,1fr)}.flag .shot{padding:22px 22px 0}.flag.rev .shot{order:0}}
+
+.sub{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:10px 40px;margin-bottom:24px}
+.sub h3{font-size:clamp(22px,2.4vw,28px)}
+.sub p{max-width:52ch;font-size:15.5px}
+.work{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+.proj{display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:20px;overflow:hidden;text-decoration:none;color:inherit;transition:border-color .2s,box-shadow .2s}
+.proj .shot{background:var(--soft);padding:18px 18px 0}
+.proj-body{padding:22px 24px 24px;display:flex;flex-direction:column;flex:1}
+.proj-top{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:8px}
+.proj h4{font-size:20px}
+.proj p{font-size:15px;margin-bottom:16px}
+.note{margin-top:22px;font-size:14px;color:var(--muted);text-align:center}
+@media (max-width:960px){.work{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:620px){.work{grid-template-columns:minmax(0,1fr)}}
+
+/* founder */
+.founder{display:grid;grid-template-columns:auto minmax(0,1fr);gap:clamp(28px,4vw,56px);align-items:center;background:#fff;border:1px solid var(--line);border-radius:24px;padding:clamp(28px,4vw,52px);max-width:980px;margin:0 auto}
+.avatar{width:clamp(140px,16vw,200px);height:auto;aspect-ratio:1;border-radius:50%;object-fit:cover;background:var(--mint-tint);box-shadow:0 0 0 8px var(--mint-tint)}
+.founder h3{font-size:clamp(24px,2.6vw,30px);margin-bottom:2px}
+.founder .role{font-style:italic;font-weight:600;color:var(--accent);margin-bottom:14px}
+.founder p.bio{margin-bottom:20px;max-width:60ch}
+.facts{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}
+.facts span{font-size:13.5px;font-weight:500;padding:6px 13px;border-radius:999px;background:var(--soft);border:1px solid var(--line);color:var(--ink)}
+@media (max-width:700px){.founder{grid-template-columns:minmax(0,1fr);text-align:center}.avatar{margin:0 auto}.facts{justify-content:center}.founder p.bio{margin-left:auto;margin-right:auto}}
+
+/* process */
+.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px;counter-reset:s}
+.steps li{counter-increment:s;text-align:center;padding:0 8px;position:relative}
+.steps li::before{content:counter(s);display:grid;place-items:center;width:56px;height:56px;margin:0 auto 18px;border-radius:50%;background:#fff;border:1.5px solid var(--forest);color:var(--forest);font-weight:700;font-size:18px;position:relative;z-index:1}
+.steps li:not(:last-child)::after{content:"";position:absolute;top:28px;left:calc(50% + 36px);right:calc(-50% + 36px);height:1.5px;background:var(--line)}
+.steps h3{font-size:18px;margin-bottom:6px}
+.steps p{font-size:15px}
+@media (max-width:860px){.steps{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:36px}.steps li::after{display:none}}
+@media (max-width:480px){.steps{grid-template-columns:minmax(0,1fr)}}
+
+/* CTA */
+.cta{background:var(--forest);border-radius:28px;padding:clamp(36px,6vw,72px) clamp(24px,5vw,64px);color:#C6D4BC;position:relative;overflow:hidden;text-align:center}
+.cta .mark{position:absolute;right:-110px;bottom:-130px;width:420px;height:420px;opacity:.08;pointer-events:none}
+.cta h2{color:#fff;font-size:clamp(30px,4vw,48px);line-height:1.12;letter-spacing:-.03em;margin:0 auto 14px;max-width:18ch;text-wrap:balance;position:relative}
+.cta p{font-size:17.5px;max-width:54ch;margin:0 auto 30px;position:relative}
+.cta .cta-row{position:relative}
+.contacts{display:flex;justify-content:center;flex-wrap:wrap;gap:10px 32px;margin-top:30px;font-size:15px;position:relative}
+.contacts a{color:#fff;text-decoration:none;font-weight:500}
+.contacts a:hover{text-decoration:underline;text-underline-offset:3px}
+.contacts span{color:#9FB592}
+
+/* footer */
+footer{padding:48px 0 40px;font-size:14.5px;color:var(--muted);border-top:1px solid var(--line)}
+.foot{display:grid;grid-template-columns:minmax(0,1.4fr) repeat(2,minmax(0,1fr));gap:32px 48px}
+.foot p{margin-top:14px;max-width:38ch}
+.foot h4{font-size:14.5px;margin-bottom:12px}
+.foot ul{list-style:none;margin:0;padding:0}
+.foot li{padding:4px 0}
+.foot a{color:var(--text);text-decoration:none}
+.foot a:hover{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
+.legal{margin-top:36px;padding-top:24px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px}
+@media (max-width:720px){.foot{grid-template-columns:minmax(0,1fr)}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="logo" viewBox="0 0 504 504">
+    <circle fill="#badca4" cx="252" cy="252" r="252"/>
+    <ellipse fill="#213018" cx="252" cy="252" rx="227.67" ry="229"/>
+    <path fill="#badca3" d="M359.75,286.03c0,56.39-45.7,102.08-102.08,102.08h-113.43l27-47.75,20.43-36.16,6.33-11.19,31.1-55.02,17.72-31.36,12.8-22.66,24.11-42.65,7.97-14.09h-45.37c-31.32,0-56.71,25.39-56.71,56.71,0,7.86,1.6,15.36,4.51,22.18,2.79,6.57,6.78,12.5,11.71,17.52,1.63,1.66,3.35,3.21,5.17,4.66l-21.37,36.62-15,25.71c-6.83-6.73-12.7-14.42-17.42-22.85-8.27-14.73-12.97-31.72-12.97-49.82,0-56.39,45.7-102.08,102.08-102.08h79.4l-13.43,24.17-13.03,23.48-13.51,24.31-13.83,24.87-14.96,26.94-40.09,72.15-1.85,3.35c9.34,3.01,19.26,4.7,29.55,4.86.58.03,1.17.03,1.75.03s1.17,0,1.75-.03c30.51-.93,54.96-25.96,54.96-56.69,0-14.64-5.56-28-14.66-38.06l17.17-29.44c17.32,9.21,31.67,23.26,41.24,40.37,8.27,14.73,12.97,31.72,12.97,49.82Z"/>
+  </symbol>
+  <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.7.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.2-.2-.5-.3Z"/></symbol>
+  <symbol id="i-in" viewBox="0 0 24 24"><path fill="currentColor" d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9.5h4V21H3zM9.5 9.5h3.8v1.6h.1c.5-1 1.8-2 3.8-2 4 0 4.8 2.6 4.8 6V21h-4v-5.2c0-1.2 0-2.9-1.8-2.9s-2 1.4-2 2.8V21h-4z"/></symbol>
+  <symbol id="i-ext" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M7 17 17 7M8 7h9v9"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+  <symbol id="i-code" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M8 8l-4 4 4 4M16 8l4 4-4 4M13.5 5l-3 14"/></symbol>
+  <symbol id="i-flow" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M4 4h6v6H4zM14 14h6v6h-6zM7 10v4a3 3 0 0 0 3 3h4M17 14v-4a3 3 0 0 0-3-3h-4"/></symbol>
+  <symbol id="i-ai" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M12 3l1.8 4.7L18.5 9.5l-4.7 1.8L12 16l-1.8-4.7L5.5 9.5l4.7-1.8zM18 15l.9 2.1L21 18l-2.1.9L18 21l-.9-2.1L15 18l2.1-.9z"/></symbol>
+  <symbol id="i-plug" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M9 3v5M15 3v5M6 8h12v3a6 6 0 0 1-12 0zM12 17v4"/></symbol>
+  <symbol id="i-chart" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M4 20h16M7 16v-5M12 16V6M17 16v-8"/></symbol>
+  <symbol id="i-life" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.5-.5-.5-2.5z"/></symbol>
+  <symbol id="i-layers" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 3l9 5-9 5-9-5zM3 13l9 5 9-5"/></symbol>
+  <symbol id="i-user" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM4 21a8 8 0 0 1 16 0"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6zM9 12l2 2 4-4"/></symbol>
+</svg>
+
+<header class="nav" id="nav">
+  <div class="wrap">
+    <div class="bar">
+      <a class="brand" href="#top" aria-label="ScanLedger Technologies, back to top">
+        <svg aria-hidden="true"><use href="#logo"/></svg>
+        <b>ScanLedger <span>Technologies</span></b>
+      </a>
+      <nav aria-label="Main">
+        <ul class="links-desk">
+          <li><a href="#services">Services</a></li>
+          <li><a href="#microfinance">Microfinance</a></li>
+          <li><a href="#work">Our work</a></li>
+          <li><a href="#founder">Founder</a></li>
+        </ul>
+      </nav>
+      <div class="nav-right">
+        <a class="btn btn-dark btn-sm" href="#contact">Start a project</a>
+        <button class="burger" id="burger" aria-expanded="false" aria-controls="menu" aria-label="Open menu"><span></span></button>
+      </div>
+    </div>
+    <div class="menu" id="menu">
+      <ul>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#microfinance">Microfinance</a></li>
+        <li><a href="#work">Our work</a></li>
+        <li><a href="#founder">Founder</a></li>
+        <li><a href="#process">How we work</a></li>
+      </ul>
+      <a class="btn btn-dark" href="#contact">Start a project</a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="wrap">
+    <div class="hero-copy">
+      <p class="eyebrow">Software · Automation · AI</p>
+      <h1>Software for <span class="hl">Growing Businesses and Institutions</span></h1>
+      <p class="lede">ScanLedger Technologies designs, builds and supports custom software, automation and AI solutions for SMEs, banks, microfinance institutions and startups. Our tools work alongside the systems you already use.</p>
+      <div class="cta-row">
+        <a class="btn btn-dark" href="#contact">Start a project</a>
+        <a class="btn btn-line" href="#services">Explore our services</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="sec soft" id="services" aria-labelledby="svc-h">
+  <div class="wrap">
+    <div class="title">
+      <h2 id="svc-h">Our Services</h2>
+      <p>From the first conversation to long after launch, we handle the full lifecycle of your software.</p>
+    </div>
+    <div class="grid3">
+      <article class="svc"><div class="ico"><svg aria-hidden="true"><use href="#i-code"/></svg></div><h3>Custom Software Development</h3><p>Web, mobile and desktop applications, internal business systems and customer platforms, built for your requirements.</p></article>
+      <article class="svc"><div class="ico"><svg aria-hidden="true"><use href="#i-flow"/></svg></div><h3>Business Process Automation</h3><p>Workflows, approvals, notifications and reports that run on their own, delivered over WhatsApp, email or Slack.</p></article>
+      <article class="svc"><div class="ico"><svg aria-hidden="true"><use href="#i-ai"/></svg></div><h3>AI Solutions &amp; Agents</h3><p>LLM-powered applications, AI agents that carry out tasks, and knowledge assistants that answer from your own documents.</p></article>
+      <article class="svc"><div class="ico"><svg aria-hidden="true"><use href="#i-plug"/></svg></div><h3>APIs &amp; Systems Integration</h3><p>REST APIs and Python or Rust services that connect your banking, payment, accounting and business systems.</p></article>
+      <article class="svc"><div class="ico"><svg aria-hidden="true"><use href="#i-chart"/></svg></div><h3>Dashboards &amp; Analytics</h3><p>Management dashboards, automated reporting and forecasting, so your decisions are based on current numbers.</p></article>
+      <article class="svc"><div class="ico"><svg aria-hidden="true"><use href="#i-life"/></svg></div><h3>Support &amp; Maintenance</h3><p>Ongoing maintenance, upgrades, performance tuning and new features for the software your business depends on.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- WHO WE SERVE -->
+<section class="sec" id="industries" aria-labelledby="ind-h">
+  <div class="wrap">
+    <div class="title">
+      <h2 id="ind-h">Who We Work With</h2>
+      <p>Different organisations, same goal: less manual work and better information.</p>
+    </div>
+    <div class="aud">
+      <article>
+        <h3>SMEs</h3>
+        <p>Move from spreadsheets and paper to connected systems.</p>
+        <ul><li>Sales, inventory and POS</li><li>Automated reports and reminders</li><li>Owner dashboards</li></ul>
+      </article>
+      <article>
+        <h3>Banks &amp; MFBs</h3>
+        <p>Tools that work alongside your core banking system.</p>
+        <ul><li>Loan operations and collections</li><li>Automated reconciliation</li><li>PAR and portfolio reporting</li></ul>
+        <a class="more" href="#microfinance">See microfinance solutions</a>
+      </article>
+      <article>
+        <h3>Startups</h3>
+        <p>An engineering team from idea to production.</p>
+        <ul><li>MVPs for web and mobile</li><li>AI features and integrations</li><li>Scaling and maintenance</li></ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- MICROFINANCE -->
+<section class="sec soft" id="microfinance" aria-labelledby="mfb-h">
+  <div class="wrap">
+    <div class="title">
+      <h2 id="mfb-h">Built for Banks and Microfinance Institutions</h2>
+      <p>Our team includes an engineer with data engineering experience at microfinance banks. We understand loan files, repayment schedules and month-end reconciliation, and we build tools that support your staff without replacing your core banking system.</p>
+    </div>
+    <div class="mfb">
+      <div class="sol-list">
+        <div class="sol"><h3>Loan operations &amp; monitoring</h3><p>Applications, documents, approval stages, repayment schedules and overdue alerts in one place.</p></div>
+        <div class="sol"><h3>Collections management</h3><p>Follow-up assignments, automated repayment reminders and recovery tracking for loan officers.</p></div>
+        <div class="sol"><h3>Automated reconciliation</h3><p>Transactions matched across statements, payment channels and internal records, with exceptions flagged.</p></div>
+        <div class="sol"><h3>Management dashboards</h3><p>PAR, delinquency, branch and officer performance, updated continuously instead of monthly.</p></div>
+        <div class="sol"><h3>Document processing</h3><p>Data extracted and organised from customer documents, application forms and financial records.</p></div>
+        <div class="sol"><h3>Workflow &amp; field apps</h3><p>Internal approvals and escalations, plus mobile tools for field officers and customer visits.</p></div>
+      </div>
+      <div class="secure">
+        <h3>Financial data, handled with care</h3>
+        <p>Every engagement is scoped around your security, regulatory and procurement requirements.</p>
+        <ul>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Access to production systems only with your authorisation and agreed controls</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>BVN, NIN and transaction data handled with data minimisation and strict confidentiality</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>People review and approve AI output in sensitive workflows</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Hosting, backup and recovery arrangements agreed during scoping</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="sec" id="why" aria-labelledby="why-h">
+  <div class="wrap">
+    <div class="title">
+      <h2 id="why-h">Why Clients Work With Us</h2>
+      <p>Solid engineering combined with a clear understanding of how your organisation operates.</p>
+    </div>
+    <div class="why">
+      <article><div class="num"><svg aria-hidden="true"><use href="#i-layers"/></svg></div><div><h3>Production-ready engineering</h3><p>We build software that is secure, maintainable and ready for real users from day one, not just a demo.</p></div></article>
+      <article><div class="num"><svg aria-hidden="true"><use href="#i-plug"/></svg></div><div><h3>Works with what you already have</h3><p>Our solutions connect to your existing systems, from core banking to accounting tools, so you don’t start over.</p></div></article>
+      <article><div class="num"><svg aria-hidden="true"><use href="#i-user"/></svg></div><div><h3>People stay in control</h3><p>We build tools that make your team more productive. Wherever AI is involved, people review and approve its output.</p></div></article>
+      <article><div class="num"><svg aria-hidden="true"><use href="#i-shield"/></svg></div><div><h3>Clear scope, clear cost</h3><p>You approve the scope, timeline and cost before development starts, and ownership of code and data is agreed in writing.</p></div></article>
+    </div>
+  </div>
+</section>
+
+<!-- WORK -->
+<section class="sec soft" id="work" aria-labelledby="work-h">
+  <div class="wrap">
+    <div class="title">
+      <h2 id="work-h">Our Work</h2>
+      <p>The products we build and run, plus AI products our founder helped build before starting ScanLedger Technologies.</p>
+    </div>
+
+    <a class="flag" href="https://scanledgerr.com" target="_blank" rel="noopener">
+      <div class="shot"><div class="frame"><div class="chrome"><i></i><i></i><i></i><span>scanledgerr.com</span></div><img src="assets/scanledger.jpg" alt="ScanLedger website homepage" width="1200" height="750" loading="lazy"></div></div>
+      <div class="flag-body">
+        <span class="tag">Our product</span>
+        <h3>ScanLedger</h3>
+        <p>A business management platform for small businesses. It brings documents, inventory, point of sale, bank reconciliation and analytics together, on web, mobile and Windows desktop.</p>
+        <p class="rel">ScanLedger is our own product. ScanLedger Technologies is the company behind it, and we build custom software for clients with the same team.</p>
+        <span class="go">Visit scanledgerr.com <svg aria-hidden="true"><use href="#i-ext"/></svg></span>
+      </div>
+    </a>
+
+    <a class="flag rev" href="https://jollyfy-web.onrender.com" target="_blank" rel="noopener">
+      <div class="shot"><div class="frame"><div class="chrome"><i></i><i></i><i></i><span>jollyfy</span></div><img src="assets/jollyfy.jpg" alt="Jollyfy website homepage" width="1200" height="750" loading="lazy"></div></div>
+      <div class="flag-body">
+        <span class="tag dev">Our product · In development</span>
+        <h3>Jollyfy</h3>
+        <p>An event planning marketplace for Nigeria. People find venues, caterers, photographers, decorators and other vendors in Lagos, Ibadan and Abuja, and can plan the whole event by chatting on WhatsApp or Telegram.</p>
+        <p>An AI assistant suggests a realistic budget split and matches people with vendors, who they contact directly with no platform commission.</p>
+        <p class="rel">Jollyfy is still in development, so some listings on the site are samples.</p>
+        <span class="go">Preview Jollyfy <svg aria-hidden="true"><use href="#i-ext"/></svg></span>
+      </div>
+    </a>
+
+    <div class="sub">
+      <h3>Our founder’s product experience</h3>
+      <p>AI products our founder helped build in sales, recruitment and healthcare.</p>
+    </div>
+    <div class="work">
+      <a class="proj" href="https://autonoms.ai" target="_blank" rel="noopener">
+        <div class="shot"><div class="frame"><div class="chrome"><i></i><i></i><i></i><span>autonoms.ai</span></div><img src="assets/autonoms.jpg" alt="Autonoms website homepage" width="1200" height="750" loading="lazy"></div></div>
+        <div class="proj-body">
+          <div class="proj-top"><h4>Autonoms</h4><span class="tag g">AI workforce</span></div>
+          <p>Teams of AI agents that handle customer acquisition, from research and outreach to CRM updates, with a human operator supervising.</p>
+          <span class="go">autonoms.ai <svg aria-hidden="true"><use href="#i-ext"/></svg></span>
+        </div>
+      </a>
+      <a class="proj" href="https://loubby.ai" target="_blank" rel="noopener">
+        <div class="shot"><div class="frame"><div class="chrome"><i></i><i></i><i></i><span>loubby.ai</span></div><img src="assets/loubby.jpg" alt="Loubby AI website homepage" width="1200" height="750" loading="lazy"></div></div>
+        <div class="proj-body">
+          <div class="proj-top"><h4>Loubby AI</h4><span class="tag g">Recruitment</span></div>
+          <p>An AI talent platform. Our founder built its AI interviewer and worked on its in-product assistant, which carries out actions for users.</p>
+          <span class="go">loubby.ai <svg aria-hidden="true"><use href="#i-ext"/></svg></span>
+        </div>
+      </a>
+      <a class="proj" href="https://bloxmedical.com" target="_blank" rel="noopener">
+        <div class="shot"><div class="frame"><div class="chrome"><i></i><i></i><i></i><span>bloxmedical.com</span></div><img src="assets/blox.jpg" alt="Blox Medical website homepage" width="1200" height="750" loading="lazy"></div></div>
+        <div class="proj-body">
+          <div class="proj-top"><h4>Blox Medical</h4><span class="tag g">Healthcare</span></div>
+          <p>Clinical support for healthcare providers. Our founder built an AI knowledge assistant that answers from approved clinical documents.</p>
+          <span class="go">bloxmedical.com <svg aria-hidden="true"><use href="#i-ext"/></svg></span>
+        </div>
+      </a>
+    </div>
+    <p class="note">Autonoms, Loubby AI and Blox Medical belong to their respective companies.</p>
+  </div>
+</section>
+
+<!-- FOUNDER -->
+<section class="sec" id="founder" aria-labelledby="fd-h">
+  <div class="wrap">
+    <div class="title">
+      <h2 id="fd-h">Meet Our Founder</h2>
+    </div>
+    <div class="founder">
+      <img class="avatar" src="assets/paul-avatar.jpg" alt="Paul Otulaja, founder of ScanLedger Technologies" width="480" height="480" loading="lazy">
+      <div>
+        <h3>Paul Otulaja</h3>
+        <p class="role">Founder &amp; CTO</p>
+        <p class="bio">Paul is an AI engineer with more than six years of experience building LLM applications, AI agents, automation and backend systems, and taking them all the way to production. He leads a team with experience across microfinance data, international software delivery and AI. His background in statistics and data science shapes how we build: practical, reliable systems you can trust.</p>
+        <div class="facts"><span>6+ years experience</span><span>AI &amp; backend engineering</span><span>B.Tech Statistics, FUTA</span></div>
+        <a class="btn btn-dark btn-sm" href="https://www.linkedin.com/in/paul-otulaja/" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-in"/></svg>Connect on LinkedIn</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="sec soft" id="process" aria-labelledby="pr-h">
+  <div class="wrap">
+    <div class="title">
+      <h2 id="pr-h">How We Work</h2>
+      <p>You approve the scope and cost before any development starts.</p>
+    </div>
+    <ol class="steps">
+      <li><h3>Understand</h3><p>We learn how your organisation works and agree on what success looks like.</p></li>
+      <li><h3>Propose</h3><p>You get a clear plan with scope, timeline and cost.</p></li>
+      <li><h3>Build</h3><p>We develop, test and connect it to your existing systems.</p></li>
+      <li><h3>Launch &amp; support</h3><p>We deploy, train your team and keep improving it.</p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="sec" id="contact" aria-labelledby="ct-h">
+  <div class="wrap">
+    <div class="cta">
+      <svg class="mark" aria-hidden="true"><use href="#logo"/></svg>
+      <h2 id="ct-h">Ready to Start Your Project?</h2>
+      <p>Tell us what you want to build or improve. The first conversation is free, and we’ll come back with practical next steps.</p>
+      <div class="cta-row">
+        <a class="btn btn-mint" href="https://wa.me/2348166860133?text=Hi%20ScanLedger%2C%20I%27d%20like%20to%20talk%20about%20a%20project." target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg>Chat on WhatsApp</a>
+        <a class="btn btn-ghost-w" href="mailto:paulie@scanledgerr.com?subject=Project%20enquiry">Send us an email</a>
+      </div>
+      <div class="contacts">
+        <span>Email <a href="mailto:paulie@scanledgerr.com">paulie@scanledgerr.com</a></span>
+        <span>Phone <a href="tel:+2348166860133">+234 816 686 0133</a></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <a class="brand" href="#top"><svg aria-hidden="true"><use href="#logo"/></svg><b>ScanLedger <span>Technologies Ltd</span></b></a>
+        <p>Custom software, automation and AI for SMEs, banks, microfinance institutions and startups.</p>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#microfinance">Microfinance</a></li>
+          <li><a href="#work">Our work</a></li>
+          <li><a href="#founder">Founder</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:paulie@scanledgerr.com">paulie@scanledgerr.com</a></li>
+          <li><a href="tel:+2348166860133">+234 816 686 0133</a></li>
+          <li><a href="https://www.linkedin.com/in/paul-otulaja/" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="https://scanledgerr.com" target="_blank" rel="noopener">scanledgerr.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="legal">
+      <span>© <span id="yr">2026</span> ScanLedger Technologies Limited. All rights reserved.</span>
+      <span>Registered in Nigeria · CAC RC 9643117</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.getElementById("yr").textContent=new Date().getFullYear();
+const nav=document.getElementById("nav"), burger=document.getElementById("burger"), menu=document.getElementById("menu");
+addEventListener("scroll",()=>nav.classList.toggle("scrolled",scrollY>8),{passive:true});
+function setMenu(open){
+  nav.classList.toggle("open",open);
+  burger.setAttribute("aria-expanded",open);
+  burger.setAttribute("aria-label",open?"Close menu":"Open menu");
+}
+burger.addEventListener("click",()=>setMenu(!nav.classList.contains("open")));
+menu.addEventListener("click",e=>{ if(e.target.closest("a")) setMenu(false); });
+addEventListener("keydown",e=>{ if(e.key==="Escape" && nav.classList.contains("open")){ setMenu(false); burger.focus(); } });
+addEventListener("resize",()=>{ if(innerWidth>900) setMenu(false); });
+</script>
+</body>
+</html>
