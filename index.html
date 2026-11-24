@@ -163,7 +163,7 @@ section{scroll-margin-top:76px}
 .chrome span{margin-left:10px;font-size:11px;color:var(--muted);background:#fff;border:1px solid var(--line);border-radius:999px;padding:0 10px;line-height:17px}
 .frame img{width:100%;height:auto;aspect-ratio:1.6;object-fit:cover;object-position:top}
 .flag{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);background:#fff;border:1px solid var(--line);border-radius:24px;overflow:hidden;text-decoration:none;color:inherit;margin-bottom:56px;transition:border-color .2s,box-shadow .2s}
-.flag:hover,.proj:hover{border-color:#C8D6BE;box-shadow:0 22px 44px -26px rgba(22,32,26,.3)}
+.flag:hover{border-color:#C8D6BE;box-shadow:0 22px 44px -26px rgba(22,32,26,.3)}
 .flag .shot{background:var(--soft);padding:32px 32px 0;display:flex;align-items:flex-end}
 .flag .shot .frame{width:100%}
 .flag-body{padding:clamp(28px,4vw,44px);display:flex;flex-direction:column;justify-content:center}
@@ -175,26 +175,235 @@ section{scroll-margin-top:76px}
 .go{margin-top:auto;display:inline-flex;align-items:center;gap:6px;font-weight:600;font-size:15px;color:var(--accent)}
 .flag-body .go{margin-top:0}
 .go svg{width:15px;height:15px;transition:transform .15s}
-.flag:hover .go svg,.proj:hover .go svg{transform:translate(2px,-2px)}
+.flag:hover .go svg{transform:translate(2px,-2px)}
 .flag+.flag{margin-top:-32px}
 .flag.rev{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr)}
 .flag.rev .shot{order:2}
 .tag.dev{background:#FCF1DC;color:#7A4E0E}
 @media (max-width:900px){.flag,.flag.rev{grid-template-columns:minmax(0,1fr)}.flag .shot{padding:22px 22px 0}.flag.rev .shot{order:0}}
 
-.sub{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:10px 40px;margin-bottom:24px}
-.sub h3{font-size:clamp(22px,2.4vw,28px)}
-.sub p{max-width:52ch;font-size:15.5px}
-.work{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
-.proj{display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:20px;overflow:hidden;text-decoration:none;color:inherit;transition:border-color .2s,box-shadow .2s}
-.proj .shot{background:var(--soft);padding:18px 18px 0}
-.proj-body{padding:22px 24px 24px;display:flex;flex-direction:column;flex:1}
-.proj-top{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:8px}
-.proj h4{font-size:20px}
-.proj p{font-size:15px;margin-bottom:16px}
+/* founder experience vertical carousel */
+.founder-exp{margin-top:clamp(48px,6vw,72px);text-align:center}
+.founder-exp-head{max-width:640px;margin:0 auto 28px}
+.founder-exp-head .eyebrow{margin-bottom:8px}
+.founder-exp-head h3{font-size:clamp(22px,2.4vw,28px);margin-bottom:8px}
+.founder-exp-head p{font-size:15.5px;color:var(--text)}
+
+.v-carousel-box{
+  max-width:580px;
+  width:100%;
+  margin:0 auto;
+  background:#fff;
+  border:1.5px solid var(--line);
+  border-radius:22px;
+  box-shadow:0 16px 36px -20px rgba(22,32,26,.14);
+  padding:14px 18px;
+  display:flex;
+  align-items:center;
+  gap:14px;
+  position:relative;
+  text-align:left;
+}
+.v-carousel-viewport{
+  flex:1;
+  min-width:0;
+  height:94px;
+  overflow:hidden;
+  position:relative;
+}
+.v-track{
+  display:flex;
+  flex-direction:column;
+  transition:transform .45s cubic-bezier(0.2, 0.9, 0.3, 1);
+  will-change:transform;
+}
+.v-item{
+  height:94px;
+  display:flex;
+  align-items:center;
+  gap:14px;
+  text-decoration:none;
+  color:inherit;
+  padding:8px 10px;
+  box-sizing:border-box;
+  border-radius:14px;
+  transition:background .15s;
+}
+.v-item:hover,.v-item:focus-visible{
+  background:var(--soft);
+}
+.v-logo-badge{
+  flex:none;
+  width:105px;
+  height:48px;
+  border-radius:11px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:5px 8px;
+  overflow:hidden;
+}
+.v-logo-dark{
+  background:#0D1117;
+  border:1px solid rgba(255,255,255,.1);
+}
+.v-logo-light{
+  background:#FAFBF8;
+  border:1px solid var(--line);
+}
+.v-logo-img{
+  max-width:100%;
+  max-height:100%;
+  width:auto;
+  height:auto;
+  object-fit:contain;
+  display:block;
+}
+.v-item-content{
+  flex:1;
+  min-width:0;
+}
+.v-item-title-row{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:3px;
+  flex-wrap:wrap;
+}
+.v-item-name{
+  font-size:16.5px;
+  font-weight:700;
+  color:var(--ink);
+  margin:0;
+  line-height:1.2;
+}
+.v-item-tag{
+  font-size:11.5px;
+  font-weight:600;
+  padding:2px 8px;
+  border-radius:999px;
+  background:var(--mint-tint);
+  color:var(--forest);
+  white-space:nowrap;
+}
+.v-item-desc{
+  font-size:13.5px;
+  color:var(--text);
+  line-height:1.35;
+  margin:0;
+  display:-webkit-box;
+  -webkit-line-clamp:2;
+  -webkit-box-orient:vertical;
+  overflow:hidden;
+}
+.v-item-link{
+  flex:none;
+  width:32px;
+  height:32px;
+  border-radius:50%;
+  background:var(--soft);
+  border:1px solid var(--line);
+  display:grid;
+  place-items:center;
+  color:var(--accent);
+  transition:background .15s,transform .15s,color .15s;
+}
+.v-item:hover .v-item-link{
+  background:var(--mint);
+  color:var(--forest);
+  transform:translate(2px,-2px);
+}
+.v-item-link svg{
+  width:14px;
+  height:14px;
+}
+.v-controls{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:6px;
+  flex:none;
+  border-left:1px solid var(--line);
+  padding-left:12px;
+}
+.v-btn{
+  width:26px;
+  height:26px;
+  border-radius:50%;
+  border:1px solid var(--line);
+  background:#fff;
+  color:var(--ink);
+  display:grid;
+  place-items:center;
+  cursor:pointer;
+  padding:0;
+  transition:background .15s,border-color .15s;
+}
+.v-btn:hover{
+  background:var(--mint-tint);
+  border-color:var(--forest);
+}
+.v-btn svg{
+  width:14px;
+  height:14px;
+}
+.v-dots{
+  display:flex;
+  flex-direction:column;
+  gap:5px;
+}
+.v-dot{
+  width:6px;
+  height:6px;
+  border-radius:999px;
+  background:var(--line);
+  border:0;
+  padding:0;
+  cursor:pointer;
+  transition:height .2s,background .2s,width .2s;
+}
+.v-dot.active{
+  background:var(--forest);
+  height:14px;
+}
 .note{margin-top:22px;font-size:14px;color:var(--muted);text-align:center}
-@media (max-width:960px){.work{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media (max-width:620px){.work{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:580px){
+  .v-carousel-box{
+    flex-direction:column;
+    padding:14px;
+    gap:10px;
+  }
+  .v-carousel-viewport{
+    height:90px;
+    width:100%;
+  }
+  .v-item{
+    height:90px;
+    gap:10px;
+    padding:6px;
+  }
+  .v-logo-badge{
+    width:84px;
+    height:42px;
+  }
+  .v-controls{
+    flex-direction:row;
+    border-left:0;
+    border-top:1px solid var(--line);
+    padding-left:0;
+    padding-top:10px;
+    width:100%;
+    justify-content:center;
+    gap:12px;
+  }
+  .v-dots{
+    flex-direction:row;
+  }
+  .v-dot.active{
+    height:6px;
+    width:14px;
+  }
+}
 
 /* founder */
 .founder{display:grid;grid-template-columns:auto minmax(0,1fr);gap:clamp(28px,4vw,56px);align-items:center;background:#fff;border:1px solid var(--line);border-radius:24px;padding:clamp(28px,4vw,52px);max-width:980px;margin:0 auto}
@@ -275,8 +484,8 @@ footer{padding:48px 0 40px;font-size:14.5px;color:var(--muted);border-top:1px so
       <nav aria-label="Main">
         <ul class="links-desk">
           <li><a href="#services">Services</a></li>
-          <li><a href="#microfinance">Microfinance</a></li>
           <li><a href="#work">Our work</a></li>
+          <li><a href="#solutions">Solutions</a></li>
           <li><a href="#founder">Founder</a></li>
         </ul>
       </nav>
@@ -288,8 +497,8 @@ footer{padding:48px 0 40px;font-size:14.5px;color:var(--muted);border-top:1px so
     <div class="menu" id="menu">
       <ul>
         <li><a href="#services">Services</a></li>
-        <li><a href="#microfinance">Microfinance</a></li>
         <li><a href="#work">Our work</a></li>
+        <li><a href="#solutions">Solutions</a></li>
         <li><a href="#founder">Founder</a></li>
         <li><a href="#process">How we work</a></li>
       </ul>
@@ -333,86 +542,12 @@ footer{padding:48px 0 40px;font-size:14.5px;color:var(--muted);border-top:1px so
   </div>
 </section>
 
-<!-- WHO WE SERVE -->
-<section class="sec" id="industries" aria-labelledby="ind-h">
-  <div class="wrap">
-    <div class="title">
-      <h2 id="ind-h">Who We Work With</h2>
-      <p>Different organisations, same goal: less manual work and better information.</p>
-    </div>
-    <div class="aud">
-      <article>
-        <h3>SMEs</h3>
-        <p>Move from spreadsheets and paper to connected systems.</p>
-        <ul><li>Sales, inventory and POS</li><li>Automated reports and reminders</li><li>Owner dashboards</li></ul>
-      </article>
-      <article>
-        <h3>Banks &amp; MFBs</h3>
-        <p>Tools that work alongside your core banking system.</p>
-        <ul><li>Loan operations and collections</li><li>Automated reconciliation</li><li>PAR and portfolio reporting</li></ul>
-        <a class="more" href="#microfinance">See microfinance solutions</a>
-      </article>
-      <article>
-        <h3>Startups</h3>
-        <p>An engineering team from idea to production.</p>
-        <ul><li>MVPs for web and mobile</li><li>AI features and integrations</li><li>Scaling and maintenance</li></ul>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- MICROFINANCE -->
-<section class="sec soft" id="microfinance" aria-labelledby="mfb-h">
-  <div class="wrap">
-    <div class="title">
-      <h2 id="mfb-h">Built for Banks and Microfinance Institutions</h2>
-      <p>Our team includes an engineer with data engineering experience at microfinance banks. We understand loan files, repayment schedules and month-end reconciliation, and we build tools that support your staff without replacing your core banking system.</p>
-    </div>
-    <div class="mfb">
-      <div class="sol-list">
-        <div class="sol"><h3>Loan operations &amp; monitoring</h3><p>Applications, documents, approval stages, repayment schedules and overdue alerts in one place.</p></div>
-        <div class="sol"><h3>Collections management</h3><p>Follow-up assignments, automated repayment reminders and recovery tracking for loan officers.</p></div>
-        <div class="sol"><h3>Automated reconciliation</h3><p>Transactions matched across statements, payment channels and internal records, with exceptions flagged.</p></div>
-        <div class="sol"><h3>Management dashboards</h3><p>PAR, delinquency, branch and officer performance, updated continuously instead of monthly.</p></div>
-        <div class="sol"><h3>Document processing</h3><p>Data extracted and organised from customer documents, application forms and financial records.</p></div>
-        <div class="sol"><h3>Workflow &amp; field apps</h3><p>Internal approvals and escalations, plus mobile tools for field officers and customer visits.</p></div>
-      </div>
-      <div class="secure">
-        <h3>Financial data, handled with care</h3>
-        <p>Every engagement is scoped around your security, regulatory and procurement requirements.</p>
-        <ul>
-          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Access to production systems only with your authorisation and agreed controls</li>
-          <li><svg aria-hidden="true"><use href="#i-check"/></svg>BVN, NIN and transaction data handled with data minimisation and strict confidentiality</li>
-          <li><svg aria-hidden="true"><use href="#i-check"/></svg>People review and approve AI output in sensitive workflows</li>
-          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Hosting, backup and recovery arrangements agreed during scoping</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- WHY US -->
-<section class="sec" id="why" aria-labelledby="why-h">
-  <div class="wrap">
-    <div class="title">
-      <h2 id="why-h">Why Clients Work With Us</h2>
-      <p>Solid engineering combined with a clear understanding of how your organisation operates.</p>
-    </div>
-    <div class="why">
-      <article><div class="num"><svg aria-hidden="true"><use href="#i-layers"/></svg></div><div><h3>Production-ready engineering</h3><p>We build software that is secure, maintainable and ready for real users from day one, not just a demo.</p></div></article>
-      <article><div class="num"><svg aria-hidden="true"><use href="#i-plug"/></svg></div><div><h3>Works with what you already have</h3><p>Our solutions connect to your existing systems, from core banking to accounting tools, so you don’t start over.</p></div></article>
-      <article><div class="num"><svg aria-hidden="true"><use href="#i-user"/></svg></div><div><h3>People stay in control</h3><p>We build tools that make your team more productive. Wherever AI is involved, people review and approve its output.</p></div></article>
-      <article><div class="num"><svg aria-hidden="true"><use href="#i-shield"/></svg></div><div><h3>Clear scope, clear cost</h3><p>You approve the scope, timeline and cost before development starts, and ownership of code and data is agreed in writing.</p></div></article>
-    </div>
-  </div>
-</section>
-
 <!-- WORK -->
-<section class="sec soft" id="work" aria-labelledby="work-h">
+<section class="sec" id="work" aria-labelledby="work-h">
   <div class="wrap">
     <div class="title">
       <h2 id="work-h">Our Work</h2>
-      <p>The products we build and run, plus AI products our founder helped build before starting ScanLedger Technologies.</p>
+      <p>The products we build and run, plus AI platforms our founder helped engineer.</p>
     </div>
 
     <a class="flag" href="https://scanledgerr.com" target="_blank" rel="noopener">
@@ -438,37 +573,155 @@ footer{padding:48px 0 40px;font-size:14.5px;color:var(--muted);border-top:1px so
       </div>
     </a>
 
-    <div class="sub">
-      <h3>Our founder’s product experience</h3>
-      <p>AI products our founder helped build in sales, recruitment and healthcare.</p>
+    <!-- Founder's Product Experience Vertical Carousel directly under Our Products -->
+    <div class="founder-exp">
+      <div class="founder-exp-head">
+        <p class="eyebrow">Proven Engineering</p>
+        <h3>Our founder’s product experience</h3>
+        <p>AI products and platforms our founder helped engineer across sales, recruitment, and healthcare.</p>
+      </div>
+
+      <div class="v-carousel-box" id="founderCarouselBox">
+        <div class="v-carousel-viewport" id="founderCarousel">
+          <div class="v-track" id="vTrack">
+            <!-- Autonoms -->
+            <a class="v-item" href="https://autonoms.ai" target="_blank" rel="noopener" aria-label="Autonoms - AI workforce">
+              <div class="v-logo-badge v-logo-dark">
+                <img src="assets/autonoms_clean_2x.png" alt="Autonoms logo" class="v-logo-img">
+              </div>
+              <div class="v-item-content">
+                <div class="v-item-title-row">
+                  <h4 class="v-item-name">Autonoms</h4>
+                  <span class="v-item-tag">AI workforce</span>
+                </div>
+                <p class="v-item-desc">Teams of AI agents for customer acquisition, research, outreach, and CRM automation.</p>
+              </div>
+              <span class="v-item-link" aria-hidden="true"><svg><use href="#i-ext"/></svg></span>
+            </a>
+
+            <!-- Loubby AI -->
+            <a class="v-item" href="https://loubby.ai" target="_blank" rel="noopener" aria-label="Loubby AI - Recruitment">
+              <div class="v-logo-badge v-logo-light">
+                <img src="assets/loubby_clean_2x.png" alt="Loubby AI logo" class="v-logo-img">
+              </div>
+              <div class="v-item-content">
+                <div class="v-item-title-row">
+                  <h4 class="v-item-name">Loubby AI</h4>
+                  <span class="v-item-tag">Recruitment</span>
+                </div>
+                <p class="v-item-desc">AI talent platform, intelligent applicant screening, and interactive user assistants.</p>
+              </div>
+              <span class="v-item-link" aria-hidden="true"><svg><use href="#i-ext"/></svg></span>
+            </a>
+
+            <!-- Blox Medical -->
+            <a class="v-item" href="https://bloxmedical.com" target="_blank" rel="noopener" aria-label="Blox Medical - Healthcare">
+              <div class="v-logo-badge v-logo-light">
+                <img src="assets/blox_clean_2x.png" alt="Blox Medical logo" class="v-logo-img">
+              </div>
+              <div class="v-item-content">
+                <div class="v-item-title-row">
+                  <h4 class="v-item-name">Blox Medical</h4>
+                  <span class="v-item-tag">Healthcare</span>
+                </div>
+                <p class="v-item-desc">Point-of-care clinical decision support and verified medical AI knowledge assistants.</p>
+              </div>
+              <span class="v-item-link" aria-hidden="true"><svg><use href="#i-ext"/></svg></span>
+            </a>
+          </div>
+        </div>
+
+        <div class="v-controls" aria-label="Carousel navigation">
+          <button class="v-btn" id="vPrev" aria-label="Previous product" type="button">
+            <svg viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="m18 15-6-6-6 6"/></svg>
+          </button>
+          <div class="v-dots" id="vDots">
+            <button class="v-dot active" data-index="0" aria-label="Autonoms" type="button"></button>
+            <button class="v-dot" data-index="1" aria-label="Loubby AI" type="button"></button>
+            <button class="v-dot" data-index="2" aria-label="Blox Medical" type="button"></button>
+          </div>
+          <button class="v-btn" id="vNext" aria-label="Next product" type="button">
+            <svg viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="m6 9 6 6 6-6"/></svg>
+          </button>
+        </div>
+      </div>
+      <p class="note">Autonoms, Loubby AI and Blox Medical belong to their respective companies.</p>
     </div>
-    <div class="work">
-      <a class="proj" href="https://autonoms.ai" target="_blank" rel="noopener">
-        <div class="shot"><div class="frame"><div class="chrome"><i></i><i></i><i></i><span>autonoms.ai</span></div><img src="assets/autonoms.jpg" alt="Autonoms website homepage" width="1200" height="750" loading="lazy"></div></div>
-        <div class="proj-body">
-          <div class="proj-top"><h4>Autonoms</h4><span class="tag g">AI workforce</span></div>
-          <p>Teams of AI agents that handle customer acquisition, from research and outreach to CRM updates, with a human operator supervising.</p>
-          <span class="go">autonoms.ai <svg aria-hidden="true"><use href="#i-ext"/></svg></span>
-        </div>
-      </a>
-      <a class="proj" href="https://loubby.ai" target="_blank" rel="noopener">
-        <div class="shot"><div class="frame"><div class="chrome"><i></i><i></i><i></i><span>loubby.ai</span></div><img src="assets/loubby.jpg" alt="Loubby AI website homepage" width="1200" height="750" loading="lazy"></div></div>
-        <div class="proj-body">
-          <div class="proj-top"><h4>Loubby AI</h4><span class="tag g">Recruitment</span></div>
-          <p>An AI talent platform. Our founder built its AI interviewer and worked on its in-product assistant, which carries out actions for users.</p>
-          <span class="go">loubby.ai <svg aria-hidden="true"><use href="#i-ext"/></svg></span>
-        </div>
-      </a>
-      <a class="proj" href="https://bloxmedical.com" target="_blank" rel="noopener">
-        <div class="shot"><div class="frame"><div class="chrome"><i></i><i></i><i></i><span>bloxmedical.com</span></div><img src="assets/blox.jpg" alt="Blox Medical website homepage" width="1200" height="750" loading="lazy"></div></div>
-        <div class="proj-body">
-          <div class="proj-top"><h4>Blox Medical</h4><span class="tag g">Healthcare</span></div>
-          <p>Clinical support for healthcare providers. Our founder built an AI knowledge assistant that answers from approved clinical documents.</p>
-          <span class="go">bloxmedical.com <svg aria-hidden="true"><use href="#i-ext"/></svg></span>
-        </div>
-      </a>
+  </div>
+</section>
+
+<!-- WHO WE SERVE -->
+<section class="sec soft" id="industries" aria-labelledby="ind-h">
+  <div class="wrap">
+    <div class="title">
+      <h2 id="ind-h">Who We Work With</h2>
+      <p>Different organisations, same goal: less manual work and better information.</p>
     </div>
-    <p class="note">Autonoms, Loubby AI and Blox Medical belong to their respective companies.</p>
+    <div class="aud">
+      <article>
+        <h3>SMEs</h3>
+        <p>Move from spreadsheets and paper to connected systems.</p>
+        <ul><li>Sales, inventory and POS</li><li>Automated reports and reminders</li><li>Owner dashboards</li></ul>
+      </article>
+      <article>
+        <h3>Banks &amp; MFBs</h3>
+        <p>Tools that work alongside your core banking system.</p>
+        <ul><li>Loan operations and collections</li><li>Automated reconciliation</li><li>PAR and portfolio reporting</li></ul>
+        <a class="more" href="#solutions">See solutions</a>
+      </article>
+      <article>
+        <h3>Startups</h3>
+        <p>An engineering team from idea to production.</p>
+        <ul><li>MVPs for web and mobile</li><li>AI features and integrations</li><li>Scaling and maintenance</li></ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- SOLUTIONS -->
+<section class="sec" id="solutions" aria-labelledby="sol-h" style="position:relative">
+  <span id="microfinance" style="position:absolute;top:-80px"></span>
+  <div class="wrap">
+    <div class="title">
+      <h2 id="sol-h">Engineered for Financial Institutions, Fintechs &amp; Operations-Heavy Businesses</h2>
+      <p>With deep background in microfinance and banking data engineering, we build secure, compliant systems for banks and MFIs—while extending that same institutional rigor to fintechs, credit providers, and high-volume operations. We streamline reconciliation, credit workflows, and reporting without disrupting your core systems.</p>
+    </div>
+    <div class="mfb">
+      <div class="sol-list">
+        <div class="sol"><h3>Loan &amp; Credit Operations</h3><p>Applications, documents, approval stages, repayment schedules and overdue alerts in one place.</p></div>
+        <div class="sol"><h3>Collections &amp; Recovery Management</h3><p>Follow-up assignments, automated repayment reminders and recovery tracking for operations and field officers.</p></div>
+        <div class="sol"><h3>Automated Multi-Channel Reconciliation</h3><p>Transactions matched across statements, payment gateways, mobile channels and internal ledgers, with exceptions flagged.</p></div>
+        <div class="sol"><h3>Real-Time Executive Dashboards</h3><p>PAR, delinquency, branch and portfolio performance, updated continuously instead of monthly.</p></div>
+        <div class="sol"><h3>Intelligent Document &amp; KYC Processing</h3><p>Data extracted, verified and organized from customer documents, application forms and financial records.</p></div>
+        <div class="sol"><h3>Custom Workflows &amp; Field Apps</h3><p>Internal approvals, escalations, and mobile tools for field officers, customer visits, and operations.</p></div>
+      </div>
+      <div class="secure">
+        <h3>Financial &amp; sensitive data, handled with care</h3>
+        <p>Every engagement is scoped around your security, regulatory compliance and operational requirements.</p>
+        <ul>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Access to production systems only with your authorisation, agreed controls and audit trails</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>BVN, NIN, customer PII and transaction data handled with data minimisation and strict confidentiality</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>People review and approve AI output in all sensitive or financial workflows</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Hosting, encryption, backup and recovery arrangements agreed during scoping</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="sec soft" id="why" aria-labelledby="why-h">
+  <div class="wrap">
+    <div class="title">
+      <h2 id="why-h">Why Clients Work With Us</h2>
+      <p>Solid engineering combined with a clear understanding of how your organisation operates.</p>
+    </div>
+    <div class="why">
+      <article><div class="num"><svg aria-hidden="true"><use href="#i-layers"/></svg></div><div><h3>Production-ready engineering</h3><p>We build software that is secure, maintainable and ready for real users from day one.</p></div></article>
+      <article><div class="num"><svg aria-hidden="true"><use href="#i-plug"/></svg></div><div><h3>Works with what you already have</h3><p>Our solutions connect to your existing systems, from core banking to accounting tools, so you don’t start over.</p></div></article>
+      <article><div class="num"><svg aria-hidden="true"><use href="#i-user"/></svg></div><div><h3>People stay in control</h3><p>We build tools that make your team more productive. Wherever AI is involved, people review and approve its output.</p></div></article>
+      <article><div class="num"><svg aria-hidden="true"><use href="#i-shield"/></svg></div><div><h3>Clear scope, clear cost</h3><p>You approve the scope, timeline and cost before development starts, and ownership of code and data is agreed in writing.</p></div></article>
+    </div>
   </div>
 </section>
 
@@ -539,8 +792,8 @@ footer{padding:48px 0 40px;font-size:14.5px;color:var(--muted);border-top:1px so
         <h4>Company</h4>
         <ul>
           <li><a href="#services">Services</a></li>
-          <li><a href="#microfinance">Microfinance</a></li>
           <li><a href="#work">Our work</a></li>
+          <li><a href="#solutions">Solutions</a></li>
           <li><a href="#founder">Founder</a></li>
         </ul>
       </div>
@@ -574,6 +827,74 @@ burger.addEventListener("click",()=>setMenu(!nav.classList.contains("open")));
 menu.addEventListener("click",e=>{ if(e.target.closest("a")) setMenu(false); });
 addEventListener("keydown",e=>{ if(e.key==="Escape" && nav.classList.contains("open")){ setMenu(false); burger.focus(); } });
 addEventListener("resize",()=>{ if(innerWidth>900) setMenu(false); });
+
+// Founder experience vertical carousel
+(function(){
+  const track = document.getElementById("vTrack");
+  const box = document.getElementById("founderCarouselBox");
+  const prevBtn = document.getElementById("vPrev");
+  const nextBtn = document.getElementById("vNext");
+  const dots = document.querySelectorAll(".v-dot");
+  if(!track || !dots.length) return;
+
+  let current = 0;
+  const count = dots.length;
+  let timer = null;
+
+  function getStep(){
+    const item = track.querySelector(".v-item");
+    return item ? item.offsetHeight : 94;
+  }
+
+  function go(idx){
+    current = (idx + count) % count;
+    track.style.transform = `translateY(-${current * getStep()}px)`;
+    dots.forEach((d, i) => d.classList.toggle("active", i === current));
+  }
+
+  function next(){ go(current + 1); }
+  function prev(){ go(current - 1); }
+
+  function start(){
+    stop();
+    timer = setInterval(next, 3200);
+  }
+  function stop(){
+    if(timer){ clearInterval(timer); timer = null; }
+  }
+
+  nextBtn?.addEventListener("click", () => { next(); start(); });
+  prevBtn?.addEventListener("click", () => { prev(); start(); });
+  dots.forEach(d => {
+    d.addEventListener("click", () => {
+      go(parseInt(d.dataset.index, 10));
+      start();
+    });
+  });
+
+  box?.addEventListener("mouseenter", stop);
+  box?.addEventListener("mouseleave", start);
+  box?.addEventListener("focusin", stop);
+  box?.addEventListener("focusout", start);
+
+  let touchStartY = 0;
+  box?.addEventListener("touchstart", e => {
+    touchStartY = e.touches[0].clientY;
+    stop();
+  }, {passive:true});
+
+  box?.addEventListener("touchend", e => {
+    const deltaY = touchStartY - e.changedTouches[0].clientY;
+    if(Math.abs(deltaY) > 30){
+      if(deltaY > 0) next();
+      else prev();
+    }
+    start();
+  }, {passive:true});
+
+  window.addEventListener("resize", () => go(current), {passive:true});
+  start();
+})();
 </script>
 </body>
 </html>
