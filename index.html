@@ -448,9 +448,70 @@ footer{padding:48px 0 40px;font-size:14.5px;color:var(--muted);border-top:1px so
 .legal{margin-top:36px;padding-top:24px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px}
 @media (max-width:720px){.foot{grid-template-columns:minmax(0,1fr)}}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+
+/* preloader */
+body.loading{overflow:hidden}
+.preloader{
+  position:fixed;
+  inset:0;
+  z-index:99999;
+  background:#FFFFFF;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  opacity:1;
+  visibility:visible;
+  transition:opacity .65s cubic-bezier(0.4,0,0.2,1), visibility .65s;
+}
+.preloader.fade-out{
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+}
+.preloader-inner{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+}
+.preloader-anim-wrap{
+  width:clamp(190px, 32vw, 280px);
+  max-width:88vw;
+  aspect-ratio:1;
+  display:grid;
+  place-items:center;
+}
+.preloader-anim{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  display:block;
+}
+.preloader-text{
+  margin-top:16px;
+  font-size:16.5px;
+  font-weight:700;
+  color:var(--ink);
+  letter-spacing:-.02em;
+}
+.preloader-text span{
+  font-weight:500;
+  color:var(--muted);
+}
 </style>
+<noscript><style>.preloader{display:none!important}body.loading{overflow:auto!important}</style></noscript>
 </head>
-<body>
+<body class="loading">
+<div id="preloader" class="preloader" role="status" aria-label="Loading ScanLedger Technologies">
+  <div class="preloader-inner">
+    <div class="preloader-anim-wrap">
+      <img src="assets/scanledger-animation.svg" alt="ScanLedger Logo Animation" class="preloader-anim">
+    </div>
+    <div class="preloader-text">ScanLedger <span>Technologies</span></div>
+  </div>
+</div>
 <a class="skip" href="#main">Skip to content</a>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -894,6 +955,47 @@ addEventListener("resize",()=>{ if(innerWidth>900) setMenu(false); });
 
   window.addEventListener("resize", () => go(current), {passive:true});
   start();
+})();
+
+// Preloader intro animation controller
+(function(){
+  const preloader = document.getElementById("preloader");
+  if(!preloader) return;
+
+  // Ensure the SVG animation completely plays (5s) before revealing the page
+  const fullAnimationDuration = 5000;
+  const startTime = performance.now();
+  let pageLoaded = (document.readyState === "complete");
+
+  if(!pageLoaded){
+    window.addEventListener("load", () => {
+      pageLoaded = true;
+    });
+  }
+
+  function dismiss(){
+    const elapsed = performance.now() - startTime;
+    const remaining = Math.max(0, fullAnimationDuration - elapsed);
+
+    setTimeout(() => {
+      if(pageLoaded || document.readyState === "complete"){
+        revealPage();
+      } else {
+        window.addEventListener("load", revealPage, { once: true });
+        setTimeout(revealPage, 3000);
+      }
+    }, remaining);
+  }
+
+  function revealPage(){
+    document.body.classList.remove("loading");
+    preloader.classList.add("fade-out");
+    setTimeout(() => {
+      if(preloader.parentNode) preloader.parentNode.removeChild(preloader);
+    }, 700);
+  }
+
+  dismiss();
 })();
 </script>
 </body>
